@@ -2,7 +2,6 @@ const http = require('http');
 const path = require('path');
 const fs = require('fs');
 require('dotenv').config();
-
 const readAndServe = function(contentType,fileName,res){
     fs.readFile(path.join(__dirname, fileName), (err, buffer)=>{
         res.setHeader('Content-Type', contentType);
@@ -10,7 +9,6 @@ const readAndServe = function(contentType,fileName,res){
         res.end(buffer)
     })
 };
-
 const handlingRequest = function(req, res){
     if(req.method == 'GET'){
         switch(req.url){
@@ -28,8 +26,6 @@ const handlingRequest = function(req, res){
         readAndServe('application/json','file.json',res);
     }
 };
-
-
 const app = http.createServer(handlingRequest);
 
 const server = app.listen(process.env.PORT, process.env.HOST, ()=>{

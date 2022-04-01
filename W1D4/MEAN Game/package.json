@@ -1,8 +1,8 @@
 {
   "name": "mean-game",
   "version": "1.0.0",
-  "description": "Student Information",
-  "main": "app01.js",
+  "description": "This is My MEAN Game project",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -15,6 +15,7 @@
   "license": "ISC",
   "devDependencies": {
     "dotenv": "^16.0.0",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "mongodb": "^4.4.1"
   }
 }

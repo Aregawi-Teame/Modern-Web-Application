@@ -32,17 +32,18 @@ module.exports.getOneGame = function(req,res){
 
 module.exports.addNewGame = function(req,res){
     if(req.body){
-        const title = req.body.title;
-        const price = parseFloat(req.body.price);
-        const minPlayers = parseInt(req.body.minPlayers);
-        const minAge = parseInt(req.body.minAge);
-        const newGame ={title:title,price:price,minPlayers:minPlayers,minAge:minAge};
+         const newGame ={};
+         newGame.title = req.body.title;
+         newGame.price = parseFloat(req.body.price);
+         newGame.minPlayers = parseInt(req.body.minPlayers);
+         newGame.minAge = parseInt(req.body.minAge);
+        // const newGame ={title:title,price:price,minPlayers:minPlayers,minAge:minAge};
         const gamesCollection = getCollection("games");
         
-        if(minAge<6 || minAge>69){
+        if(newGame.minAge<6 || newGame.minAge>99){
             res.status(400).json({error: "minAge must be between 6 and 69"});
         }
-        if(minPlayers<1 || minPlayers>11){
+        if(newGame.minPlayers<1 || newGame.minPlayers>11){
             res.status(400).json({error: "Minplayers must be between 1 and 11"});
         }
        else{

@@ -13,7 +13,7 @@ module.exports.getAllGames = function(req, res){
     console.log(req.query.count)
     if(req.query && req.query.count){
         const c = parseInt(req.query.count,10)
-        count = c>10 ?10 : c
+        count = c>10 ?10 : c<1?count:c
     }
     gamesCollection.find().limit(count).toArray((err,games)=>{
         console.log("Found games",games);

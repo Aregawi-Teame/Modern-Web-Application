@@ -4,7 +4,7 @@
   "description": "This is school Project",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon --inspect",
+    "dev": "nodemon --inspect",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Aregawi T. Arefe",

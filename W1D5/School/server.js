@@ -1,8 +1,7 @@
 require("dotenv").config();
-const path = require("path");
+require("./api/data/db");
 const express = require("express");
-const studentRoutes = require("./api/routes/student");
-const courseRoutes = require("./api/routes/course");
+const routes = require("./api/routes");
 
 const app = express();
 
@@ -14,8 +13,7 @@ app.use((req, res, next)=>{
     console.log(req.method, req.url);
     next();
 });
-app.use("/api", studentRoutes);
-app.use("/api", courseRoutes);
+app.use("/api", routes);
 
 const server = app.listen(process.env.PORT, process.env.HOST, ()=>{
     console.log(`${process.env.SERVER_START_UP_MSG} http://${process.env.HOST}:${server.address().port}`);
